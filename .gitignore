@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+.spotify_cache
+backend/dj_cache/
+node_modules/
+dist/
+.vite/

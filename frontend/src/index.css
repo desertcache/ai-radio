@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --accent: #7c5cff;
+  --accent-blue: #5eadff;
+  --accent-pink: #ff4d6a;
+  --accent-violet: #a855f7;
+  --bg-deep: #0b0d1a;
+  --text-primary: #f0f0f5;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-deep);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100vh;
+  color: var(--text-primary);
+}
+
+#root {
+  height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Mesh Background */
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mesh-gradient {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    #1a1040,
+    #0d2847,
+    #1a0a3a,
+    #0a1a2e,
+    #1a1040
+  );
+  animation: mesh-rotate 20s linear infinite;
+}
+
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+}
+
+.mesh-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #7c5cff 0%, transparent 70%);
+  top: 10%;
+  left: 15%;
+  animation: orb-float-1 12s ease-in-out infinite;
+}
+
+.mesh-orb-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #5eadff 0%, transparent 70%);
+  top: 50%;
+  right: 10%;
+  animation: orb-float-2 15s ease-in-out infinite;
+}
+
+.mesh-orb-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+  bottom: 10%;
+  left: 40%;
+  animation: orb-float-3 18s ease-in-out infinite;
+}
+
+.mesh-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@keyframes mesh-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orb-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 50px) scale(0.9); }
+}
+
+@keyframes orb-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 30px) scale(0.95); }
+  66% { transform: translate(40px, -60px) scale(1.05); }
+}
+
+@keyframes orb-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, 50px) scale(1.08); }
+  66% { transform: translate(-60px, -20px) scale(0.92); }
+}
